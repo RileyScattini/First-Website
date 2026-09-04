@@ -1,155 +1,803 @@
 <!DOCTYPE html>
-<!--
-  ================================================================
-  READ THIS BEFORE YOU PASTE ANYTHING
-
-  When Gemini gives you a page, you do NOT paste it into a part of
-  this file. You replace the entire file.
-
-  Click into the editor, press Ctrl+A (Cmd+A on Mac), press Delete,
-  then paste. Everything here is meant to be thrown away.
-
-  Do that only AFTER your live link works. Get the link first.
-  ================================================================
--->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My first site</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0d1d30;
-    --card: #142a44;
-    --line: #27466a;
-    --aqua: #6de1d7;
-    --text: #ffffff;
-    --muted: #94a9bf;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--navy);
-    color: var(--text);
-    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    padding: 6vh 20px;
-  }
-  main { width: 100%; max-width: 640px; }
-  .badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin-bottom: 18px;
-  }
-  h1 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 800;
-    font-size: clamp(38px, 9vw, 68px);
-    letter-spacing: -0.05em;
-    line-height: 1.02;
-    margin: 0 0 8px;
-  }
-  .name {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: clamp(18px, 4vw, 24px);
-    letter-spacing: -0.04em;
-    color: var(--aqua);
-    margin: 0 0 24px;
-  }
-  p.lead { font-size: 18px; color: var(--muted); margin: 0 0 34px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 18px;
-  }
-  .card h2 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin: 0 0 16px;
-  }
-  ol { margin: 0; padding-left: 20px; }
-  li { margin-bottom: 12px; color: var(--muted); }
-  li:last-child { margin-bottom: 0; }
-  li b { color: var(--text); font-weight: 700; }
-  code {
-    font-family: ui-monospace, "SF Mono", Consolas, monospace;
-    font-size: 0.92em;
-    background: #0a1727;
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 1px 6px;
-    color: var(--aqua);
-  }
-  a { color: var(--aqua); }
-  footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #6e839a;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE HOOPS // 2026 AI Coding Championship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #FF4D00;
+            --court-wood: #18120C;
+            --arena-black: #08070B;
+            --surface: #121118;
+            --surface-bright: #1C1A24;
+            --border: #2D2A38;
+            --neon-cyan: #00F0FF;
+            --neon-green: #00FF66;
+            --gold: #FFD700;
+            --text: #F2F0F7;
+            --text-dim: #8E8A9F;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--arena-black);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Typography Override */
+        h1, h2, h3, .font-display {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Background Grid Pattern */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(to right, rgba(255, 77, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 77, 0, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 7, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--orange);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.4rem;
+            padding: 0.6rem 2rem;
+            background: var(--orange);
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 20px rgba(255, 77, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 77, 0, 0.6);
+            background: #FF661A;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            background: rgba(0, 240, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+        }
+
+        /* Main Container */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .badge {
+            background: rgba(255, 77, 0, 0.15);
+            border: 1px solid var(--orange);
+            color: var(--orange);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            line-height: 0.85;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #FFFFFF 0%, #A5A0B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+            -webkit-text-fill-color: var(--orange);
+            text-shadow: 0 0 30px rgba(255, 77, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Scoreboard Display */
+        .scoreboard-container {
+            max-width: 1000px;
+            margin: 3rem auto 6rem;
+            padding: 0 1.5rem;
+        }
+
+        .scoreboard {
+            background: var(--surface);
+            border: 3px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .scoreboard::before {
+            content: "LIVE ARENA STATS";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--orange);
+            color: #FFF;
+            font-family: 'Bebas Neue', cursive;
+            padding: 0.1rem 1rem;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            border-radius: 4px;
+        }
+
+        .score-box {
+            background: var(--arena-black);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .score-title {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-val {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .score-val.time {
+            color: var(--orange);
+            text-shadow: 0 0 10px rgba(255, 77, 0, 0.3);
+        }
+
+        .score-val.gold {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 4rem;
+            line-height: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        /* Playbook / Rules (Grid) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--orange);
+        }
+
+        .card-num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4rem;
+            color: rgba(255, 77, 0, 0.2);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Tactical Court Canvas Container */
+        .court-section {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .court-wrapper {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            background: var(--court-wood);
+            border: 4px solid #FFF;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        #basketballCourt {
+            width: 100%;
+            height: 400px;
+            background: #231911;
+            border-radius: 8px;
+            display: block;
+        }
+
+        /* Leaderboard Table */
+        .leaderboard-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background: var(--surface-bright);
+            padding: 1.2rem 1.5rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 77, 0, 0.03);
+        }
+
+        .rank {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            width: 60px;
+        }
+
+        .rank-1 { color: var(--gold); }
+        .rank-2 { color: #E0E0E0; }
+        .rank-3 { color: #CD7F32; }
+
+        .team-name {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .team-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .tag {
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-llm { background: rgba(0, 240, 255, 0.1); color: var(--neon-cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
+        .tag-agent { background: rgba(0, 255, 102, 0.1); color: var(--neon-green); border: 1px solid rgba(0, 255, 102, 0.3); }
+
+        /* Registration Form Modal/Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 77, 0, 0.15) 0%, rgba(8, 7, 11, 1) 100%);
+            border: 1px solid var(--orange);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem auto;
+            max-width: 900px;
+        }
+
+        .cta-section h2 {
+            font-size: 4.5rem;
+            line-height: 0.85;
+            margin-bottom: 1rem;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0;
+            flex-wrap: wrap;
+        }
+
+        .cta-input {
+            flex: 1;
+            min-width: 260px;
+            padding: 0.8rem 1.2rem;
+            background: var(--arena-black);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: #FFF;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .cta-input:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        footer p span {
+            color: var(--orange);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 4rem; }
+            .section-header h2 { font-size: 3rem; }
+            .cta-section h2 { font-size: 3rem; }
+        }
+    </style>
 </head>
 <body>
-<main>
 
-  <span class="badge">Cal Poly Vibe Coding &middot; Session 01</span>
+    <div class="bg-grid"></div>
 
-  <h1>It&rsquo;s live.</h1>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            VIBE<span>HOOPS</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#playbook">Playbook</a></li>
+            <li><a href="#tactics">Tactics</a></li>
+            <li><a href="#leaderboard">Standings</a></li>
+        </ul>
+        <a href="#draft" class="btn" style="font-size: 1.1rem; padding: 0.4rem 1.2rem;">ENTER DRAFT</a>
+    </nav>
 
-  <!-- Step 5: change the name below to yours, then commit. -->
-  <p class="name">Built by Riley Scattini</p>
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="badge">GLOBAL VIBE CODING HACKATHON 2026</div>
+            <h1>NO MANUAL CODE.<br><span>JUST PURE BUCKETS.</span></h1>
+            <p>Prompt your way through 24 intense hours of full-court AI software building. Draft your models, run your pipelines, and take the game-winning shot.</p>
+            <div class="hero-cta">
+                <a href="#draft" class="btn">DECLARE FOR DRAFT</a>
+                <a href="#playbook" class="btn btn-outline">READ THE PLAYBOOK</a>
+            </div>
+        </section>
 
-  <p class="lead">
-    This page is on the internet. Anyone you send this link to can open it,
-    on any device, right now. You made that happen in about five minutes.
-  </p>
+        <!-- Live Scoreboard -->
+        <div class="scoreboard-container">
+            <div class="scoreboard">
+                <div class="score-box">
+                    <div class="score-title">SHOT CLOCK</div>
+                    <div class="score-val time" id="shotClock">24:00</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-title">GRAND PRIZE POOL</div>
+                    <div class="score-val gold">$50,000</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-title">TEAMS IN DRAFT</div>
+                    <div class="score-val">256</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-title">ACTIVE QUARTER</div>
+                    <div class="score-val" style="color: var(--neon-green)">Q1</div>
+                </div>
+            </div>
+        </div>
 
-  <div class="card">
-    <h2>Three things, in this order</h2>
-    <ol>
-      <li><b>Put your name on it.</b> Edit <code>index.html</code>, change
-        YOUR NAME HERE above, commit, refresh this page.</li>
-      <li><b>Submit this link.</b> Go to
-        <a href="https://www.calpolyvibecoding.com/">calpolyvibecoding.com</a>,
-        make an account, and paste this URL in. That is how you get counted,
-        and how Claude seats get assigned.</li>
-      <li><b>Then build.</b> Open Gemini, get a page, and replace this entire
-        file with it.</li>
-    </ol>
-  </div>
+        <!-- Playbook Section -->
+        <section id="playbook" class="section">
+            <div class="section-header">
+                <h2>THE TOURNAMENT PLAYBOOK</h2>
+                <p>Simple rules. High stakes. Pure aesthetic execution.</p>
+            </div>
 
-  <div class="card">
-    <h2>How to replace this page</h2>
-    <ol>
-      <li>Copy what Gemini gives you with the <b>copy button</b> on the code
-        block. Do not click and drag.</li>
-      <li>Open <code>index.html</code> here and click the pencil icon.</li>
-      <li><b>Ctrl+A</b> (<b>Cmd+A</b> on Mac), then <b>Delete</b>. All of it.
-        Yes, really.</li>
-      <li>Paste, commit, refresh.</li>
-    </ol>
-  </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h3>OFF-HAND PROMPTING</h3>
+                    <p>No standard IDE text typing allowed during game time. All code must be authored via natural language prompts, voice commands, or AI agent orchestration.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h3>THE 24-SECOND SHOT CLOCK</h3>
+                    <p>Features are judged in rapid mini-rounds. Build, test, and ship full user workflows before the shot clock hits zero to earn round multipliers.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">03</div>
+                    <h3>STYLE & VIBE CHECK</h3>
+                    <p>50% of points are awarded for system performance and 50% for pure design flair, smooth transitions, and visual execution.</p>
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    Nothing on this page is precious. It exists so the link has something to
-    show before you have something of your own.
-  </footer>
+        <!-- Dynamic Tactical Court Canvas -->
+        <section id="tactics" class="court-section">
+            <div class="section-header">
+                <h2>TACTICAL HEATMAP</h2>
+                <p>Live AI model prompt density and code execution zones</p>
+            </div>
+            <div class="court-wrapper">
+                <canvas id="basketballCourt"></canvas>
+            </div>
+        </section>
 
-</main>
+        <!-- Standings / Leaderboard -->
+        <section id="leaderboard" class="section">
+            <div class="section-header">
+                <h2>CURRENT LEADERBOARD</h2>
+                <p>Teams battling for the 2026 Championship Ring</p>
+            </div>
+
+            <div class="leaderboard-card">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>RANK</th>
+                                <th>TEAM NAME</th>
+                                <th>PRIMARY AI STACK</th>
+                                <th>SCORE</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank rank-1">01</td>
+                                <td>
+                                    <div class="team-name">
+                                        <div class="team-avatar">LA</div>
+                                        <span>LA LAKERS.AI</span>
+                                    </div>
+                                </td>
+                                <td><span class="tag tag-agent">MULTI-AGENT</span> Claude 3.7 + Cursor</td>
+                                <td style="color: var(--neon-cyan)">99.4 PTS</td>
+                                <td style="color: var(--neon-green)">● IN GAME</td>
+                            </tr>
+                            <tr>
+                                <td class="rank rank-2">02</td>
+                                <td>
+                                    <div class="team-name">
+                                        <div class="team-avatar">BC</div>
+                                        <span>BOSTON CODEICS</span>
+                                    </div>
+                                </td>
+                                <td><span class="tag tag-llm">LLM SOLO</span> Gemini 2.5 Flash</td>
+                                <td style="color: var(--neon-cyan)">96.8 PTS</td>
+                                <td style="color: var(--neon-green)">● IN GAME</td>
+                            </tr>
+                            <tr>
+                                <td class="rank rank-3">03</td>
+                                <td>
+                                    <div class="team-name">
+                                        <div class="team-avatar">GS</div>
+                                        <span>GOLDEN STATE PROMPTS</span>
+                                    </div>
+                                </td>
+                                <td><span class="tag tag-agent">AGENT SWARM</span> AutoGPT Custom</td>
+                                <td style="color: var(--neon-cyan)">94.2 PTS</td>
+                                <td style="color: var(--neon-green)">● IN GAME</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">04</td>
+                                <td>
+                                    <div class="team-name">
+                                        <div class="team-avatar">CHI</div>
+                                        <span>CHICAGO BUILDS</span>
+                                    </div>
+                                </td>
+                                <td><span class="tag tag-llm">HYBRID</span> DeepSeek R1 + v0</td>
+                                <td style="color: var(--neon-cyan)">91.5 PTS</td>
+                                <td style="color: var(--orange)">TIMEOUT</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Draft Registration CTA -->
+        <section id="draft" class="section" style="padding-top: 0;">
+            <div class="cta-section">
+                <h2>READY TO TAKE THE FINAL SHOT?</h2>
+                <p>Register your roster today. Limited to 256 competitive teams worldwide.</p>
+                <form class="cta-form" onsubmit="event.preventDefault(); alert('Draft Registration Received! Welcome to the Arena.');">
+                    <input type="email" class="cta-input" placeholder="ENTER YOUR EMAIL..." required>
+                    <button type="submit" class="btn">CLAIM DRAFT SPOT</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VIBE HOOPS HACKATHON. ALL RIGHTS RESERVED. POWERED BY <span>PURE PROMPTS</span>.</p>
+    </footer>
+
+    <!-- Interactive Canvas & Shot Clock Script -->
+    <script>
+        // Shot Clock Simulation
+        let timeInSeconds = 24 * 60; // 24 minutes
+        const clockDisplay = document.getElementById('shotClock');
+
+        function updateClock() {
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = timeInSeconds % 60;
+            clockDisplay.textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            if (timeInSeconds > 0) {
+                timeInSeconds--;
+            } else {
+                timeInSeconds = 24 * 60; // Reset
+            }
+        }
+        setInterval(updateClock, 1000);
+
+        // Tactical Canvas Interactive Rendering
+        const canvas = document.getElementById('basketballCourt');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth - 32;
+            canvas.height = 360;
+            drawCourt();
+        }
+
+        // Particle system representing AI prompt bursts on the court
+        const particles = [];
+        for (let i = 0; i < 30; i++) {
+            particles.push({
+                x: Math.random() * 800,
+                y: Math.random() * 360,
+                radius: Math.random() * 4 + 2,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5,
+                color: Math.random() > 0.5 ? '#FF4D00' : '#00F0FF'
+            });
+        }
+
+        function drawCourt() {
+            const w = canvas.width;
+            const h = canvas.height;
+
+            // Clear
+            ctx.fillStyle = '#1A130E';
+            ctx.fillRect(0, 0, w, h);
+
+            // Court Lines Style
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+            ctx.lineWidth = 2;
+
+            // Center line
+            ctx.beginPath();
+            ctx.moveTo(w / 2, 0);
+            ctx.lineTo(w / 2, h);
+            ctx.stroke();
+
+            // Center Circle
+            ctx.beginPath();
+            ctx.arc(w / 2, h / 2, 50, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Key Areas (Left and Right)
+            ctx.strokeRect(0, h / 2 - 50, 100, 100);
+            ctx.strokeRect(w - 100, h / 2 - 50, 100, 100);
+
+            // 3-Point Arcs (Simplified)
+            ctx.beginPath();
+            ctx.arc(0, h / 2, 160, -Math.PI / 2, Math.PI / 2);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(w, h / 2, 160, Math.PI / 2, 3 * Math.PI / 2);
+            ctx.stroke();
+
+            // Draw and animate particles (Tactical AI nodes)
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = p.color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // Move
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Bounce off edges
+                if (p.x < 0 || p.x > w) p.vx *= -1;
+                if (p.y < 0 || p.y > h) p.vy *= -1;
+            });
+        }
+
+        function animate() {
+            drawCourt();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.onload = function() {
+            resizeCanvas();
+            animate();
+        };
+    </script>
 </body>
 </html>
